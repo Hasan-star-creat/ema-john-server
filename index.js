@@ -31,7 +31,7 @@ app.post('/addProducts', (req,res) => {
 })  
 
    app.get('/products', (req ,res) => {
-       ProductsCollection.find({})
+       ProductsCollection.find({name:{$regex: 'TV'}})
        .toArray((err, documents) => {
            res.send(documents)
        })
@@ -67,7 +67,7 @@ app.post('/addProducts', (req,res) => {
 
 
 app.get('/', (req, res) => {
-    res.send('i love you mona ')
+    res.send('hello')
 })
 
 app.listen(process.env.PORT || port)
